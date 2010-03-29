@@ -238,6 +238,11 @@ module PostgisFunctions
     self.update_attribute(geo_columns.first, simplify)
   end
 
+
+  def buffer(width=0.1)
+    postgis_calculate(:buffer,self,width)
+  end
+
   #
   # Returns a "simplified" version of the given geometry using the Douglas-Peuker
   # algorithm. Will avoid creating derived geometries (polygons in particular) that
@@ -247,7 +252,7 @@ module PostgisFunctions
   #
   # Performed by the GEOS module. Requires GEOS 3.0.0+
   #
-  # Returns Geometry ST_SimplifyPreserveTopology(geometry geomA, float tolerance);
+  # Returns Geometry ST_SimplifyPreserveTopology(geometry geomA, float tolerance);0.005
   #
   def simplify_preserve_topology(tolerance=0.1)
     postgis_calculate(:simplifypreservetopology, self, tolerance)
@@ -505,12 +510,18 @@ module PostgisFunctions
   # Returns Geometry as GeoJSON
   #
   # http://geojson.org/
-  #
-  def as_geo_json(precision=15, bbox=0)
-    postgis_calculate(:AsGeoJSON, self,precision,bbox)
+  # 
+  def as_geo_json(precision=15, bbox = 0)
+    postgis_calculate(:AsGeoJSON, self, [precision, bbox])
   end
 
-
+  #ST_PointOnSurface — Returns a POINT guaranteed to lie on the surface.
+  #geometry ST_PointOnSurface(geometry g1);eometry A, geometry B);
+  def point_on_surface
+    postgis_calculate(:pointonsurface, self)
+  end
+  
+  
   #
   #
   # LINESTRING
