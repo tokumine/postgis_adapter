@@ -9,6 +9,13 @@
 module PostgisFunctions
 
   #
+  # Test if a geometry is well formed. 
+  #
+  def valid_geom?
+    postgis_calculate(:isvalid, self)
+  end
+
+  #
   # True if the given geometries represent the same geometry.
   # Directionality is ignored.
   #
