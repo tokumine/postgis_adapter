@@ -27,26 +27,11 @@ If you are using Spatial Adapter, *remove it first*.
 
 === As gem:
 
-    sudo gem install postgis-adapter
+    sudo gem install ppe-postgis-adapter
 
 Rails:
 
-    config.gem "postgis_adapter"
-
-
-Github version:
-
-
-    sudo gem install nofxx-postgis_adapter --source http://gems.github.com
-
-Rails:
-
-    config.gem "nofxx-postgis_adapter", :lib => "postgis_adapter", :source => "http://gems.github.com"
-
-
-=== As plugin:
-
-    script/plugin install git://github.com/nofxx/postgis_adapter.git
+    config.gem "ppe-postgis-adapter", :lib => "postgis_adapter"
 
 
 == How to Use
