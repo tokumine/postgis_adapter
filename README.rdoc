@@ -10,8 +10,10 @@ Based on http://georuby.rubyforge.org Spatial Adapter
 RDocs - http://docs.github.com/nofxx/postgis_adapter
 Postgis Manual - http://postgis.refractions.net/documentation/manual-svn
 
-*PostGIS and Rails 2+ only*.
+== What does this fork do
 
+- PostGis Adapter working in Rails 3 (patching Arel)
+- Multipolygon type
 
 == Install
 
